@@ -59,7 +59,7 @@ const createPhotoComment = () => {
 // Счетчик фотографий
 let photoCount = 0;
 
-const Comment={
+const Comments={
   MIN:1,
   MAX:10
 };
@@ -77,11 +77,13 @@ const createPhoto= () => {
     url : `photos/${photoCount}.jpg`,
     description : getRandomArrayElement(DESCRIPTION_PHOTO),
     likes : getRandomPositiveInteger(Likes.MIN, Likes.MAX),
-    comment : Array.from({length: getRandomPositiveInteger(Comment.MIN, Comment.MAX)}, createPhotoComment),
+    comments : Array.from({length: getRandomPositiveInteger(Comments.MIN, Comments.MAX)}, createPhotoComment),
   };
 };
 
-//Массив фотографий
-const createPhotoObject = Array.from({length: PHOTO_COUNT}, createPhoto);
+// Функция для создания массива фотографий
+const createPhotoObject =()=> Array.from({length: PHOTO_COUNT}, createPhoto);
 
 export {createPhotoObject};
+
+
