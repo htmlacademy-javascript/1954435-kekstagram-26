@@ -19,4 +19,4 @@ checkStringLength('пример строки',17);
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {getRandomPositiveInteger,getRandomArrayElement, isEscapeKey};
+export {getRandomPositiveInteger,getRandomArrayElement, isEscapeKey, checkStringLength};
