@@ -1,4 +1,4 @@
-import {renderPhotoElement} from './full-photo.js';
+import {renderPhotoElement} from './fullsize-photo.js';
 
 const renderThumbnais=(thumbnails)=>{
   const userPhotoContainer = document.querySelector('.pictures');

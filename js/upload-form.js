@@ -1,4 +1,6 @@
 import  {isEscapeKey} from './util.js';
+import { resetScaleValue } from './scale-photo.js';
+import { resetEffects } from './effects-photo.js';
 
 const MAX_COUNT_HASHTAGS = 5;
 const RE = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
@@ -35,11 +37,13 @@ function closeUserModalForm () {
 
 buttonCloseOrderForm.addEventListener('click', closeUserModalForm);
 
-// открытие формы редактирования изображения
+// Oткрытие формы редактирования изображения
 const onUploadFileChange = () => {
   orderFormOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
   document.addEventListener('keydown',onPopupEscKeydown);
+  resetScaleValue();
+  resetEffects();
 
 };
 orderFormUploadFile.addEventListener('change', onUploadFileChange);

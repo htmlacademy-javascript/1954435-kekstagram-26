@@ -1,5 +1,6 @@
 import  {isEscapeKey} from './util.js';
 
+
 const MAX_COMMENTS_LIMIT_SHOW = 5;
 
 const body = document.querySelector('body');
@@ -87,6 +88,8 @@ const renderPhotoElement = ({url, likes, comments, description}) => {
 
   document.addEventListener('keydown', onPopupEscKeydown);
 
+
 };
+
 
 export {renderPhotoElement};
