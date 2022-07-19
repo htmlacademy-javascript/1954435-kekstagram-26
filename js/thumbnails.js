@@ -1,6 +1,7 @@
-import {renderPhotoElement} from './fullsize-photo.js';
+import { renderFullSizePhoto} from './fullsize-photo.js';
 
-const renderThumbnais=(thumbnails)=>{
+//Функция отрисовки миниатюр
+const renderThumbnails=(thumbnails)=>{
   const userPhotoContainer = document.querySelector('.pictures');
   const photoUsersTemplate = document.querySelector('#picture').content.querySelector('.picture');
   const photoListFragment = document.createDocumentFragment();
@@ -10,31 +11,14 @@ const renderThumbnais=(thumbnails)=>{
     photoUsersProperty.querySelector('.picture__img').src =url;
     photoUsersProperty.querySelector('.picture__likes').textContent =likes;
     photoUsersProperty.querySelector('.picture__comments').textContent =comments.length;
-    //photoUsersProperty.addEventListener('click', () => renderPhotoElement(photo));
-    /*photoUsersProperty.querySelector('.picture').addEventListener('click', (evt) => {
-      evt.preventDefault();
-      renderPhotoElement(photo);
-    });*/
+    photoUsersProperty.addEventListener('click', () => renderFullSizePhoto(photo));
     photoListFragment.append(photoUsersProperty);
   });
 
   userPhotoContainer.append(photoListFragment);
 
-  //Функция для связки миниатюр и больших фото
-
-  const previews = userPhotoContainer.querySelectorAll('.picture');
-
-  const initBigPicture = (item, dataPicture) => {
-    item.addEventListener('click', () => {
-      renderPhotoElement(dataPicture);
-    });
-  };
-
-  for (let i = 0; i < thumbnails.length; i++) {
-    initBigPicture(previews[i], thumbnails[i]);
-  }
 };
 
 
-export{renderThumbnais};
+export{renderThumbnails};
 

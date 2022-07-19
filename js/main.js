@@ -1,9 +1,12 @@
-import './thumbnails.js';
-import {renderThumbnais} from './thumbnails.js';
-import {createPhotoObject} from './data.js';
-import './fullsize-photo.js';
-renderThumbnais(createPhotoObject());
+import {renderThumbnails} from './thumbnails.js';
+import { getData } from './api.js';
+import { setUserFormSubmit } from './submit-form.js';
 
-import './upload-form.js';
-import './scale-photo.js';
-import './effects-photo.js';
+
+getData((photos) => {
+  renderThumbnails(photos);
+
+});
+
+setUserFormSubmit();
+

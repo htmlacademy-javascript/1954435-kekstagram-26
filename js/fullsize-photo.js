@@ -40,7 +40,7 @@ buttonCloseBigPicture.addEventListener('click', cancelPhotoContainer);
 
 
 //Функция для отрисовки фотографии в полноэкранном режиме
-const renderPhotoElement = ({url, likes, comments, description}) => {
+const renderFullSizePhoto = ({url, likes, comments, description}) => {
 
   bigPicture.classList.remove('hidden');
   body.classList.add('modal-open');
@@ -88,8 +88,6 @@ const renderPhotoElement = ({url, likes, comments, description}) => {
 
   document.addEventListener('keydown', onPopupEscKeydown);
 
-
 };
 
-
-export {renderPhotoElement};
+export { renderFullSizePhoto};
