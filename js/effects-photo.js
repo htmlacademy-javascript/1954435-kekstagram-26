@@ -123,6 +123,8 @@ rangeSlider.noUiSlider.on('update', () => {
   if (effectCheckedValue && effectCheckedValue.value !== 'none') {
     const { filter, unit } = sliderParameters[effectCheckedValue.value];
     previewPhotoNode.style.filter = `${filter}(${valueRangeSlider}${unit})`;
+
+    //effectLevelValue.value=parseFloat(value);
   }
 });
 
