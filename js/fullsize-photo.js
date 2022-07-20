@@ -37,6 +37,7 @@ function cancelPhotoContainer () {
 }
 
 buttonCloseBigPicture.addEventListener('click', cancelPhotoContainer);
+//buttonCloseBigPicture.addEventListener('click', () => cancelPhotoContainer());
 
 
 //Функция для отрисовки фотографии в полноэкранном режиме

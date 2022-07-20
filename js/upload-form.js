@@ -12,15 +12,6 @@ const inputHashtags=uploadForm.querySelector('.text__hashtags');
 const inputDescription=uploadForm.querySelector('.text__description');
 
 
-//Закрытие формы редактирования
-
-/*const onPopupEscKeydown= (evt)=> {
-  if (isEscapeKey(evt)) {
-    evt.preventDefault();
-    closeUserModalForm();
-  }
-};*/
-
 const onPopupEscKeydown = (evt) => {
   if (isEscapeKey(evt) && !body.contains(document.querySelector('.error'))) {
     evt.preventDefault();
