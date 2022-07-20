@@ -1,5 +1,5 @@
 import  {isEscapeKey} from './util.js';
-import { isValidForm } from './validation-form.js';
+import { isValidForm, checkHashtags} from './validation-form.js';
 import {closeUserModalForm, uploadForm} from './upload-form.js';
 import { sendData } from './api.js';
 
@@ -14,6 +14,8 @@ const errorContainerNode = document.querySelector('#error').content.querySelecto
 const errorButtonNode = errorContainerNode.querySelector('.error__button');
 //Кнопка для отправки данных на сервер
 const submitButton = document.querySelector('#upload-submit');
+//Форма редактирования
+const orderFormOverlay =  document.querySelector('.img-upload__overlay');
 
 // блокировка кнопки отправки
 const blockSubmitButton = () => {
@@ -77,15 +79,16 @@ errorButtonNode.addEventListener('click', () => cancelErrorMessage());
 // закрытие окна об ошибке
 function cancelErrorMessage() {
   errorContainerNode.remove();
+  orderFormOverlay.classList.remove('hidden');
   document.removeEventListener('keydown', onErrorContainerEscKeydown);
-  document.removeEventListener('click', onOutErrorContainerClick);
 }
 
 // открытие окна при ошибке
 const showErrorMessage = () => {
+  orderFormOverlay.classList.add('hidden');
   body.append(errorContainerNode);
   document.addEventListener('keydown', onErrorContainerEscKeydown);
-  document.addEventListener('click', onOutErrorContainerClick);
+  errorContainerNode.addEventListener('click', onOutErrorContainerClick);
 
 };
 
@@ -103,11 +106,28 @@ const onFailSendForm = () => {
 const setUserFormSubmit = () => {
   uploadForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
+    const isValid = isValidForm();
+    checkHashtags();
+
+    if (isValid) {
+      blockSubmitButton();
+      sendData(onSuccessSendForm, onFailSendForm, new FormData(evt.target));
+    }
+  });
+};
+/*
+const setUserFormSubmit = () => {
+  uploadForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    const isValid = isValidForm();
+    checkHashtags();
+
+
     if (isValidForm()) {
       blockSubmitButton();
       sendData(onSuccessSendForm, onFailSendForm, new FormData(evt.target));
     }
   });
 };
-
+*/
 export { setUserFormSubmit };

@@ -11,10 +11,6 @@ const getRandomPositiveInteger = (a, b) => {
 //Функция для получения случайного элемента из массива
 const getRandomArrayElement = (elements ) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-//Функция для проверки максимальной длины строки.
-
-const checkStringLength =(string, length)=>string.length<=length;
-
 //Фукция при нажатии Escape
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
@@ -44,5 +40,14 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
+//Функция для устранения дребезга:
+function debounce (callback, timeoutDelay = 500) {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+}
 
-export {getRandomPositiveInteger,getRandomArrayElement, isEscapeKey, checkStringLength,showAlert};
+
+export {getRandomPositiveInteger,getRandomArrayElement, isEscapeKey,showAlert,debounce};

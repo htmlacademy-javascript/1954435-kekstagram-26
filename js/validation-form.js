@@ -37,5 +37,8 @@ pristine.addValidator(inputHashtags, validateUniqueHashtags, MessagesHashtagsErr
 pristine.addValidator(inputHashtags, validateLimitHashtags, MessagesHashtagsErrors. LIMIT_HASHTAGS);
 
 const isValidForm = () => pristine.validate();
+const checkHashtags=()=>{
+  pristine.validate(inputHashtags);
+};
 
-export { isValidForm };
+export { isValidForm,checkHashtags };

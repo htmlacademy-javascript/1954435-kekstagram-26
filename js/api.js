@@ -18,8 +18,8 @@ const getData = (onSuccess) => {
       }
       return response.json();
     })
-    .then((photos) => {
-      onSuccess(photos);
+    .then((posts) => {
+      onSuccess(posts);
     })
     .catch(() => {
       showAlert(MessagesError.GET_ERROR);
