@@ -11,12 +11,12 @@ const buttonDecreaseScale=document.querySelector('.scale__control--smaller');
 //Кнопка увеличения масштаба
 const buttonIncreaseScale=document.querySelector('.scale__control--bigger');
 //Предварительный просмотр изображения
-const previewPhotoNode=document.querySelector('.img-upload__preview img');
+const imageUploadPreview=document.querySelector('.img-upload__preview img');
 
 
 const resetScaleValue = () => {
   scaleControlNode.value = `${scaleSettings.MAX}%`;
-  previewPhotoNode.style.transform = '';
+  imageUploadPreview.style.transform = '';
 };
 
 const changeScaleValue = (increase) => {
@@ -31,7 +31,7 @@ const changeScaleValue = (increase) => {
     }
   }
   scaleControlNode.value = `${photoScaleValue}%`;
-  previewPhotoNode.style.transform = `scale(${photoScaleValue / 100})`;
+  imageUploadPreview.style.transform = `scale(${photoScaleValue / 100})`;
 };
 
 const onIncreaseScaleButtonClick = () => changeScaleValue(true);

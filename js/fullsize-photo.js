@@ -1,23 +1,17 @@
 import  {isEscapeKey} from './util.js';
 
-
 const MAX_COMMENTS_LIMIT_SHOW = 5;
 
 const body = document.querySelector('body');
 const bigPicture = document.querySelector('.big-picture');
-
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
 const bigPictureLikes = bigPicture.querySelector('.likes-count');
-//const bigPictureComments =bigPicture.querySelector('.comments-count');
 const bigPicttureDescription = bigPicture.querySelector('.social__caption');
 const commentsContainer = bigPicture.querySelector('.social__comments');
 const commentElement = document.querySelector('.social__comment');
-
 const commentsCount = bigPicture.querySelector('.social__comment-count');
 const buttonCommentLoader = bigPicture.querySelector('.comments-loader');
-
 const buttonCloseBigPicture = bigPicture.querySelector('#picture-cancel');
-
 const commentListFragment = document.createDocumentFragment();
 
 // Функция закрытия модального окна с большим фото.
@@ -37,7 +31,6 @@ function cancelPhotoContainer () {
 }
 
 buttonCloseBigPicture.addEventListener('click', cancelPhotoContainer);
-//buttonCloseBigPicture.addEventListener('click', () => cancelPhotoContainer());
 
 
 //Функция для отрисовки фотографии в полноэкранном режиме
