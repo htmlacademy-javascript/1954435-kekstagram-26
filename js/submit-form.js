@@ -92,16 +92,6 @@ const showErrorMessage = () => {
 
 };
 
-const onSuccessSendForm = () => {
-  closeUserModalForm();
-  showSuccessMessage();
-  unblockSubmitButton();
-};
-
-const onFailSendForm = () => {
-  showErrorMessage();
-  unblockSubmitButton();
-};
 
 const setUserFormSubmit = () => {
   uploadForm.addEventListener('submit', (evt) => {
@@ -111,23 +101,18 @@ const setUserFormSubmit = () => {
 
     if (isValid) {
       blockSubmitButton();
-      sendData(onSuccessSendForm, onFailSendForm, new FormData(evt.target));
+      sendData(() => {
+        closeUserModalForm();
+        showSuccessMessage();
+        unblockSubmitButton();
+      },
+      () => {
+        showErrorMessage();
+        unblockSubmitButton();
+      },
+      new FormData(evt.target));
     }
   });
 };
-/*
-const setUserFormSubmit = () => {
-  uploadForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    const isValid = isValidForm();
-    checkHashtags();
 
-
-    if (isValidForm()) {
-      blockSubmitButton();
-      sendData(onSuccessSendForm, onFailSendForm, new FormData(evt.target));
-    }
-  });
-};
-*/
 export { setUserFormSubmit };

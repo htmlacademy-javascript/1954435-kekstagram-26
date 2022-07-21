@@ -1,13 +1,14 @@
 import  {isEscapeKey} from './util.js';
 import { resetScaleValue } from './scale-photo.js';
 import { resetEffects } from './effects-photo.js';
+import './preview-photo.js';
 
 
 const uploadForm = document.querySelector('#upload-select-image');
 const orderFormUploadFile =  uploadForm.querySelector('#upload-file');
 const body = document.querySelector('body');
 const orderFormOverlay =  uploadForm.querySelector('.img-upload__overlay');
-const buttonCloseOrderForm = uploadForm.querySelector('#upload-cancel');
+const buttonCloseUploadForm = uploadForm.querySelector('#upload-cancel');
 const inputHashtags=uploadForm.querySelector('.text__hashtags');
 const inputDescription=uploadForm.querySelector('.text__description');
 
@@ -26,8 +27,8 @@ function closeUserModalForm () {
   uploadForm.reset();
 }
 
-buttonCloseOrderForm.addEventListener('click', closeUserModalForm);
-//buttonCloseOrderForm.addEventListener('click', () => closeUserModalForm());
+buttonCloseUploadForm.addEventListener('click', closeUserModalForm);
+
 
 // Oткрытие формы редактирования изображения
 const onUploadFileChange = () => {
