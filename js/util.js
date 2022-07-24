@@ -40,7 +40,7 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
-//Функция для устранения дребезга:
+//Функция для устранения дребезга
 function debounce (callback, timeoutDelay = 500) {
   let timeoutId;
   return (...rest) => {
